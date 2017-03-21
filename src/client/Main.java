@@ -49,18 +49,14 @@ public class Main extends Application {
     void sendFile() {
         Task<Void> sendFileTask;
         if (isSelected) {
-            sendFileTask = new SendFileTask(file); //klasa zadania
+            sendFileTask = new SendFileTask(file);
             statusLabel.textProperty().bind(sendFileTask.messageProperty());
             progressBar.progressProperty().bind(sendFileTask.progressProperty());
-            executor.submit(sendFileTask); //uruchomienie zadania w tle
+            executor.submit(sendFileTask);
         }
     }
 
     public static void main(String[] args) throws IOException {
         launch(args);
-        Socket s = new Socket(InetAddress.getLocalHost().getHostAddress(), 9090);
-        InputStream input = s.getInputStream();
-        String message = input.toString();
-        System.out.println(message);
     }
 }
