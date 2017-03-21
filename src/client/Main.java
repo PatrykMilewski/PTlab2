@@ -1,4 +1,4 @@
-package sample;
+package client;
 
 import javafx.application.Application;
 import javafx.concurrent.Task;
@@ -11,7 +11,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -54,7 +56,11 @@ public class Main extends Application {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         launch(args);
+        Socket s = new Socket(InetAddress.getLocalHost().getHostAddress(), 9090);
+        InputStream input = s.getInputStream();
+        String message = input.toString();
+        System.out.println(message);
     }
 }
