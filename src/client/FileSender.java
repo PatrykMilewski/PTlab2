@@ -11,13 +11,12 @@ import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.net.InetAddress;
-import java.net.Socket;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Main extends Application {
+public class FileSender extends Application {
     private File file;
     private boolean isSelected = false;
     private Parent root;
@@ -26,14 +25,17 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
+        primaryStage.setTitle("Wysylacz plikow.");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    @FXML private Label statusLabel;
-    @FXML private ProgressBar progressBar;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private ProgressBar progressBar;
+
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @FXML
@@ -43,7 +45,7 @@ public class Main extends Application {
         file = fileChooser.showOpenDialog(primaryStage);
         if (file != null)
             isSelected = true;
-}
+    }
 
     @FXML
     void sendFile() {

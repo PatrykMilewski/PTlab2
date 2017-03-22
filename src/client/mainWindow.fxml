@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.FileSender">
+   <children>
+      <VBox prefHeight="278.0" prefWidth="650.0">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="250.0" prefWidth="650.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button layoutX="61.0" layoutY="172.0" mnemonicParsing="false" onMouseClicked="#chooseFile" prefHeight="38.0" prefWidth="143.0" text="Wybierz plik" />
+                  <Button layoutX="452.0" layoutY="172.0" mnemonicParsing="false" onMouseClicked="#sendFile" prefHeight="38.0" prefWidth="143.0" text="Wyslij" />
+                  <ProgressBar fx:id="progressBar" layoutX="225.0" layoutY="75.0" prefWidth="200.0" progress="0.0" />
+                  <Text layoutX="307.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postęp" />
+                  <Label fx:id="statusLabel" layoutX="309.0" layoutY="131.0" text="Status" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
